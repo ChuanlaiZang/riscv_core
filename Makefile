@@ -1,6 +1,3 @@
-STUID = ysyx_22050548
-STUNAME = 臧传来
-
 # DO NOT modify the following code!!!
 
 TRACER = tracer-ysyx2204

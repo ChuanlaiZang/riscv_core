@@ -1,22 +1,3 @@
-/*
-用于实现加载和存储单元(Load-Store Unit, LSU)的功能。这是在处理器中执行所有内存读写操作的组件。以下是其主要功能的概述：
-
-模块与前一阶段和后一阶段的进行握手，通过i_pre_valid, o_pre_ready, o_post_valid和i_post_ready信号进行通信。
-
-数据路径信号: 模块接收前一阶段发送的各种信号，如i_exu_exres, i_exu_rs2, i_exu_lsfunc3等，并将处理后的结果通过o_lsu_lsres, o_lsu_exres等信号传递给后一阶段。
-
-外设信号: 模块通过uni_if.Master接口与数据缓存进行通信，并与模块内部的clint设备进行交互。
-
-AXI接口和CLINT设备访问：依据地址lsu_addr确定数据是否来自AXI接口或CLINT设备，并执行相应的读写操作。
-
-模拟信号: 这个模块包含一些用于模拟的信号，如s_lsu_ins, s_lsu_lsclint和s_lsu_device。
-
-在实现过程中，模块内部使用了寄存器(reg)以存储一些状态，用以实现握手协议和暂存前一阶段的信号。对于不同类型的加载和存储指令，模块使用多路选择器(mux)根据指令类型从AXI接口读取的数据dCacheIf_M.rdata生成最终的数据。在后续阶段中，这些数据可以被用于更新处理器的状态或者存储在寄存器文件中。
-
-总的来说，这个lsu模块的主要职责是处理处理器内部的加载和存储指令，与数据缓存进行通信以完成数据的读取和写入操作，并与处理器的其他部分进行协调，以确保数据的一致性和正确性。
-*/
-
-
 module lsu (
   input  logic                    i_clk         ,
   input  logic                    i_rst_n       ,
