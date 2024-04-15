@@ -1,0 +1,144 @@
+//     Copyright (c) 2023 SMIC             
+//     Filename:      S55NLLGSPH_X512Y16D32_BW.mbist
+//     IP code:       S55NLLGSPH
+//     Version:       1.1.a
+//     CreateDate:    2023-2-15        
+                    
+//    Mentor Mbist for General Single-PORT SRAM
+//    SMIC 55nm LL Logic Process
+
+//    Configuration: -instname S55NLLGSPH_X512Y16D32_BW -rows 512 -bits 32 -mux 16 
+//    Redundancy: Off
+//    Bit-Write: On
+
+
+// DISCLAIMER                                                                      //
+//                                                                                 //  
+//   SMIC hereby provides the quality information to you but makes no claims,      //
+// promises or guarantees about the accuracy, completeness, or adequacy of the     //
+// information herein. The information contained herein is provided on an "AS IS"  //
+// basis without any warranty, and SMIC assumes no obligation to provide support   //
+// of any kind or otherwise maintain the information.                              //  
+//   SMIC disclaims any representation that the information does not infringe any  //
+// intellectual property rights or proprietary rights of any third parties. SMIC   //
+// makes no other warranty, whether express, implied or statutory as to any        //
+// matter whatsoever, including but not limited to the accuracy or sufficiency of  //
+// any information or the merchantability and fitness for a particular purpose.    //
+// Neither SMIC nor any of its representatives shall be liable for any cause of    //
+// action incurred to connect to this service.                                     //  
+//                                                                                 //
+// STATEMENT OF USE AND CONFIDENTIALITY                                            //  
+//                                                                                 //  
+//   The following/attached material contains confidential and proprietary         //  
+// information of SMIC. This material is based upon information which SMIC         //  
+// considers reliable, but SMIC neither represents nor warrants that such          //
+// information is accurate or complete, and it must not be relied upon as such.    //
+// This information was prepared for informational purposes and is for the use     //
+// by SMIC's customer only. SMIC reserves the right to make changes in the         //  
+// information at any time without notice.                                         //  
+//   No part of this information may be reproduced, transmitted, transcribed,      //  
+// stored in a retrieval system, or translated into any human or computer          // 
+// language, in any form or by any means, electronic, mechanical, magnetic,        //  
+// optical, chemical, manual, or otherwise, without the prior written consent of   //
+// SMIC. Any unauthorized use or disclosure of this material is strictly           //  
+// prohibited and may be unlawful. By accepting this material, the receiving       //  
+// party shall be deemed to have acknowledged, accepted, and agreed to be bound    //
+// by the foregoing limitations and restrictions. Thank you.                       //  
+//                                                                                 //
+
+model S55NLLGSPH_X512Y16D32_BW(Q,CLK,CEN,WEN,BWEN,A,D)
+(
+   bist_definition (
+      clock          CLK high;
+      data_out       Q (array = 31:0;);
+      data_in        D (array = 31:0;);
+      address        A (array = 12:0;);
+      write_enable   WEN low;
+      write_enable   BWEN (array = 31:0;) low;
+      chip_enable    CEN low;
+
+      tech        = "SRAM (55nm)";
+      vendor      = SMIC;
+      min_address = 0;
+      max_address = 8191;
+      data_size   = 32;
+      message      = "Synchronous Single-Port 8192x32 SRAM";
+
+      top_column  = 16;
+      addr_inc    = 16;
+      top_word    = 1;
+
+      descrambling_definition (
+         address (
+                ca_0 = A<0>;
+                ca_1 = A<1>;
+                ca_2 = A<2>;
+                ca_3 = A<3>;
+                ra_0 = A<7> XOR A<4>;
+                ra_1 = A<7> XOR A<5>;
+                ra_2 = A<7> XOR A<6>;
+                ra_3 = A<8>; 
+                ra_4 = A<9>; 
+                ra_5 = A<10>; 
+                ra_6 = A<11>; 
+                ra_7 = A<12>; 
+                ra_8 = A<7>; 
+            )
+          data_in (
+               Din0 = D<0>;
+               Din1 = INV D<1>;
+               Din2 = D<2>;
+               Din3 = INV D<3>;
+               Din4 = D<4>;
+               Din5 = INV D<5>;
+               Din6 = D<6>;
+               Din7 = INV D<7>;
+               Din8 = D<8>;
+               Din9 = INV D<9>;
+               Din10 = D<10>;
+               Din11 = INV D<11>;
+               Din12 = D<12>;
+               Din13 = INV D<13>;
+               Din14 = D<14>;
+               Din15 = INV D<15>;
+               Din16 = D<16>;
+               Din17 = INV D<17>;
+               Din18 = D<18>;
+               Din19 = INV D<19>;
+               Din20 = D<20>;
+               Din21 = INV D<21>;
+               Din22 = D<22>;
+               Din23 = INV D<23>;
+               Din24 = D<24>;
+               Din25 = INV D<25>;
+               Din26 = D<26>;
+               Din27 = INV D<27>;
+               Din28 = D<28>;
+               Din29 = INV D<29>;
+               Din30 = D<30>;
+               Din31 = INV D<31>;
+            )
+         )
+
+
+      read_write_port (
+         read_cycle (
+            change A;
+            assert CEN;
+            wait;
+            wait;
+            expect Q move;
+            wait;
+         )
+         write_cycle (
+            change A;
+            change D;
+            assert CEN;
+            assert WEN;
+            assert BWEN;
+            wait;
+            wait;
+         )
+      )
+   )
+)

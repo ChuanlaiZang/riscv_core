@@ -1,0 +1,760 @@
+/*
+    Copyright (c) 2023 SMIC
+    Filename:      S55NLLGSPH_X512Y16D32_BW_ss_1.08_125.lib
+    IP code:       S55NLLGSPH
+    Version:       1.1.a
+    CreateDate:    2023-2-15
+
+    Synopsys Technology Library for General Single-PORT SRAM
+    SMIC 55nm LL Logic Process
+
+    Configuration: -instname S55NLLGSPH_X512Y16D32_BW -rows 512 -bits 32 -mux 16 
+    Redundancy: Off
+    Bit-Write: On
+*/
+
+/* DISCLAIMER                                                                      */
+/*                                                                                 */  
+/*   SMIC hereby provides the quality information to you but makes no claims,      */
+/* promises or guarantees about the accuracy, completeness, or adequacy of the     */
+/* information herein. The information contained herein is provided on an "AS IS"  */
+/* basis without any warranty, and SMIC assumes no obligation to provide support   */
+/* of any kind or otherwise maintain the information.                              */  
+/*   SMIC disclaims any representation that the information does not infringe any  */
+/* intellectual property rights or proprietary rights of any third parties. SMIC   */
+/* makes no other warranty, whether express, implied or statutory as to any        */
+/* matter whatsoever, including but not limited to the accuracy or sufficiency of  */
+/* any information or the merchantability and fitness for a particular purpose.    */
+/* Neither SMIC nor any of its representatives shall be liable for any cause of    */
+/* action incurred to connect to this service.                                     */  
+/*                                                                                 */
+/* STATEMENT OF USE AND CONFIDENTIALITY                                            */  
+/*                                                                                 */  
+/*   The following/attached material contains confidential and proprietary         */  
+/* information of SMIC. This material is based upon information which SMIC         */  
+/* considers reliable, but SMIC neither represents nor warrants that such          */
+/* information is accurate or complete, and it must not be relied upon as such.    */
+/* This information was prepared for informational purposes and is for the use     */
+/* by SMIC's customer only. SMIC reserves the right to make changes in the         */  
+/* information at any time without notice.                                         */  
+/*   No part of this information may be reproduced, transmitted, transcribed,      */  
+/* stored in a retrieval system, or translated into any human or computer          */ 
+/* language, in any form or by any means, electronic, mechanical, magnetic,        */  
+/* optical, chemical, manual, or otherwise, without the prior written consent of   */
+/* SMIC. Any unauthorized use or disclosure of this material is strictly           */  
+/* prohibited and may be unlawful. By accepting this material, the receiving       */  
+/* party shall be deemed to have acknowledged, accepted, and agreed to be bound    */
+/* by the foregoing limitations and restrictions. Thank you.                       */  
+/*                                                                                 */  
+
+library(S55NLLGSPH_X512Y16D32_BW_ss_1.08_125) {
+	delay_model		: table_lookup;
+	time_unit		: "1ns";
+	voltage_unit		: "1V";
+	current_unit		: "1mA";
+	leakage_power_unit	: "1mW";
+	nom_process		: 1;
+	nom_temperature		: 125;
+	nom_voltage		: 1.08;
+	capacitive_load_unit	 (1,pf);
+
+	pulling_resistance_unit	        : "1kohm";
+
+	/* additional header data */
+	default_cell_leakage_power      : 0;
+	default_fanout_load		: 1;
+	default_inout_pin_cap		: 0.005;
+	default_input_pin_cap		: 0.005;
+	default_output_pin_cap		: 0.0;
+	default_max_transition		: 1.000;
+
+        /* default attributes */
+        default_leakage_power_density : 0.0;
+        slew_derate_from_library      : 1.000;
+        slew_lower_threshold_pct_fall : 10.000;
+        slew_upper_threshold_pct_fall : 90.000;
+        slew_lower_threshold_pct_rise : 10.000;
+        slew_upper_threshold_pct_rise : 90.000;
+        input_threshold_pct_fall      : 50.000;
+        input_threshold_pct_rise      : 50.000;
+        output_threshold_pct_fall     : 50.000;
+        output_threshold_pct_rise     : 50.000;
+
+ 	/* k-factors */
+ 	k_process_cell_fall             : 1;
+ 	k_process_cell_leakage_power    : 0;
+ 	k_process_cell_rise             : 1;
+ 	k_process_fall_transition       : 1;
+ 	k_process_hold_fall             : 1;
+ 	k_process_hold_rise             : 1;
+ 	k_process_internal_power        : 0;
+ 	k_process_min_pulse_width_high  : 1;
+ 	k_process_min_pulse_width_low   : 1;
+ 	k_process_pin_cap               : 0;
+ 	k_process_recovery_fall         : 1;
+ 	k_process_recovery_rise         : 1;
+ 	k_process_rise_transition       : 1;
+ 	k_process_setup_fall            : 1;
+ 	k_process_setup_rise            : 1;
+ 	k_process_wire_cap              : 0;
+ 	k_process_wire_res              : 0;
+	k_temp_cell_fall		: 0.000;
+	k_temp_cell_rise		: 0.000;
+	k_temp_hold_fall                : 0.000;
+	k_temp_hold_rise                : 0.000;
+	k_temp_min_pulse_width_high     : 0.000;
+	k_temp_min_pulse_width_low      : 0.000;
+	k_temp_min_period               : 0.000;
+	k_temp_rise_propagation         : 0.000;
+	k_temp_fall_propagation         : 0.000;
+	k_temp_rise_transition          : 0.0;
+	k_temp_fall_transition          : 0.0;
+	k_temp_recovery_fall            : 0.000;
+	k_temp_recovery_rise            : 0.000;
+	k_temp_setup_fall               : 0.000;
+	k_temp_setup_rise               : 0.000;
+	k_volt_cell_fall                : 0.000;
+	k_volt_cell_rise                : 0.000;
+	k_volt_hold_fall                : 0.000;
+	k_volt_hold_rise                : 0.000;
+	k_volt_min_pulse_width_high     : 0.000;
+	k_volt_min_pulse_width_low      : 0.000;
+	k_volt_min_period               : 0.000;
+	k_volt_rise_propagation         : 0.000;
+	k_volt_fall_propagation         : 0.000;
+	k_volt_rise_transition	        : 0.0;
+	k_volt_fall_transition	        : 0.0;
+	k_volt_recovery_fall            : 0.000;
+	k_volt_recovery_rise            : 0.000;
+	k_volt_setup_fall               : 0.000;
+	k_volt_setup_rise               : 0.000;
+
+
+        operating_conditions(ss_1.08_125) {
+		process	         : 1;
+		temperature	 : 125;
+		voltage	         : 1.08;
+		tree_type	 : balanced_tree;
+	}
+        default_operating_conditions : ss_1.08_125;
+	wire_load("sample") {
+		resistance	 : 1.6e-05;
+		capacitance	 : 0.0002;
+		area	 : 1.7;
+  		slope	 : 500;
+		fanout_length	 (1,500);
+	}
+        lu_table_template(S55NLLGSPH_X512Y16D32_BW_bist_mux_delay_template) {
+           variable_1 : input_net_transition;
+           variable_2 : total_output_net_capacitance;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+        lu_table_template(S55NLLGSPH_X512Y16D32_BW_mux_mem_out_delay_template) {
+           variable_1 : input_net_transition;
+           variable_2 : total_output_net_capacitance;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+        lu_table_template(S55NLLGSPH_X512Y16D32_BW_mem_out_delay_template) {
+           variable_1 : input_net_transition;
+           variable_2 : total_output_net_capacitance;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+	lu_table_template(S55NLLGSPH_X512Y16D32_BW_bist_mux_slew_template) {
+           variable_1 : total_output_net_capacitance;
+           index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+	lu_table_template(S55NLLGSPH_X512Y16D32_BW_mem_out_slew_template) {
+           variable_1 : total_output_net_capacitance;
+           index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+	lu_table_template(S55NLLGSPH_X512Y16D32_BW_clk_setup_constraint_template) {
+           variable_1 : related_pin_transition;
+           variable_2 : constrained_pin_transition;
+               index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+	lu_table_template(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+           variable_1 : related_pin_transition;
+           variable_2 : constrained_pin_transition;
+           index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+           index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+        power_lut_template(S55NLLGSPH_X512Y16D32_BW_energy_template_clkslew_load) {
+           variable_1 : input_transition_time;
+           variable_2 : total_output_net_capacitance;
+               index_1 ("1000, 1001");
+               index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+        power_lut_template(S55NLLGSPH_X512Y16D32_BW_energy_template_sigslew_load) {
+           variable_1 : input_transition_time;
+           variable_2 : total_output_net_capacitance;
+           index_1 ("1000, 1001");
+           index_2 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+        power_lut_template(S55NLLGSPH_X512Y16D32_BW_energy_template_load) {
+           variable_1 : total_output_net_capacitance;
+           index_1 ("1000, 1001, 1002, 1003, 1004, 1005, 1006");
+        }
+        power_lut_template(S55NLLGSPH_X512Y16D32_BW_energy_template_clkslew) {
+           variable_1 : input_transition_time;
+               index_1 ("1000, 1001");
+        }
+        power_lut_template(S55NLLGSPH_X512Y16D32_BW_energy_template_sigslew) {
+           variable_1 : input_transition_time;
+               index_1 ("1000, 1001");
+        }
+	library_features(report_delay_calculation);
+	type (S55NLLGSPH_X512Y16D32_BW_DATA) {
+		base_type : array ;
+		data_type : bit ;
+		bit_width : 32;
+		bit_from : 31;
+		bit_to : 0 ;
+		downto : true ;
+	}
+	type (S55NLLGSPH_X512Y16D32_BW_ADDRESS) {
+		base_type : array ;
+		data_type : bit ;
+		bit_width : 13;
+		bit_from : 12;
+		bit_to : 0 ;
+		downto : true ;
+	}
+	type (S55NLLGSPH_X512Y16D32_BW_S) {
+		base_type : array ;
+		data_type : bit ;
+		bit_width : 4;
+		bit_from : 3;
+		bit_to : 0 ;
+		downto : true ;
+	}
+
+	type (S55NLLGSPH_X512Y16D32_BW_WRITE) {
+		base_type : array ;
+		data_type : bit ;
+		bit_width : 32;
+		bit_from : 31;
+		bit_to : 0 ;
+		downto : true ;
+	}
+
+cell(S55NLLGSPH_X512Y16D32_BW) {
+	area		 : 174788.437;
+	dont_use	 : TRUE;
+	dont_touch	 : TRUE;
+        interface_timing : TRUE;
+	memory() {
+		type : ram;
+		address_width : 13;
+		word_width : 32;
+	}
+        bus(Q)  {
+                bus_type : S55NLLGSPH_X512Y16D32_BW_DATA;
+		direction : output;
+		max_capacitance : 0.400;
+                memory_read() {
+			address : A;
+		}
+                timing() {
+                        related_pin :   "CLK" ;
+                        timing_type : rising_edge ;
+                        timing_sense : non_unate;
+                        cell_rise(S55NLLGSPH_X512Y16D32_BW_mem_out_delay_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.001, 0.005, 0.010, 0.050, 0.100, 0.200, 0.400");
+                        values(\
+			"2.715, 2.724, 2.733, 2.790, 2.858, 2.993, 3.263",\
+			"2.726, 2.735, 2.744, 2.801, 2.870, 3.004, 3.274",\
+			"2.737, 2.746, 2.755, 2.812, 2.880, 3.014, 3.285",\
+			"2.749, 2.758, 2.767, 2.824, 2.892, 3.027, 3.297",\
+			"2.763, 2.772, 2.780, 2.838, 2.906, 3.041, 3.311",\
+			"2.766, 2.775, 2.784, 2.841, 2.909, 3.044, 3.314",\
+			"2.759, 2.768, 2.777, 2.834, 2.902, 3.037, 3.307"\
+                        );
+                        }
+                        rise_transition(S55NLLGSPH_X512Y16D32_BW_mem_out_slew_template) {
+                        index_1("0.001, 0.005, 0.010, 0.050, 0.100, 0.200, 0.400");
+			values("0.030, 0.027, 0.055, 0.166, 0.311, 0.604, 1.193");
+                        }
+                        cell_fall(S55NLLGSPH_X512Y16D32_BW_mem_out_delay_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.001, 0.005, 0.010, 0.050, 0.100, 0.200, 0.400");
+                        values(\
+			"2.694, 2.704, 2.714, 2.770, 2.834, 2.962, 3.217",\
+			"2.705, 2.715, 2.725, 2.782, 2.846, 2.973, 3.228",\
+			"2.716, 2.726, 2.736, 2.793, 2.856, 2.983, 3.238",\
+			"2.729, 2.738, 2.748, 2.805, 2.869, 2.997, 3.251",\
+			"2.742, 2.752, 2.761, 2.819, 2.882, 3.010, 3.265",\
+			"2.745, 2.755, 2.765, 2.822, 2.885, 3.013, 3.268",\
+			"2.738, 2.748, 2.758, 2.815, 2.878, 3.006, 3.261"\
+                        );
+                        }
+                        fall_transition(S55NLLGSPH_X512Y16D32_BW_mem_out_slew_template) {
+                        index_1("0.001, 0.005, 0.010, 0.050, 0.100, 0.200, 0.400");
+			values("0.033, 0.030, 0.057, 0.152, 0.278, 0.538, 1.064");
+                        }
+                }
+        }
+        pin(CLK)   {
+		direction : input;
+		capacitance : 0.034;
+                clock : true;
+                max_transition       : 1.000;
+                min_pulse_width_high : 0.020 ;
+                min_pulse_width_low  : 0.242 ;
+                min_period           : 2.987 ;
+
+
+                internal_power(){
+                        when : "(!CEN & ! \
+                                   WEN & ! \
+                                (BWEN[0]) & \
+                                (BWEN[1]) & \
+                                (BWEN[2]) & \
+                                (BWEN[3]) & \
+                                (BWEN[4]) & \
+                                (BWEN[5]) & \
+                                (BWEN[6]) & \
+                                (BWEN[7]) & \
+                                (BWEN[8]) & \
+                                (BWEN[9]) & \
+                                (BWEN[10]) & \
+                                (BWEN[11]) & \
+                                (BWEN[12]) & \
+                                (BWEN[13]) & \
+                                (BWEN[14]) & \
+                                (BWEN[15]) & \
+                                (BWEN[16]) & \
+                                (BWEN[17]) & \
+                                (BWEN[18]) & \
+                                (BWEN[19]) & \
+                                (BWEN[20]) & \
+                                (BWEN[21]) & \
+                                (BWEN[22]) & \
+                                (BWEN[23]) & \
+                                (BWEN[24]) & \
+                                (BWEN[25]) & \
+                                (BWEN[26]) & \
+                                (BWEN[27]) & \
+                                (BWEN[28]) & \
+                                (BWEN[29]) & \
+                                (BWEN[30]) & \
+                                (BWEN[31]) \
+                                ) \
+                                 ";
+                        rise_power(S55NLLGSPH_X512Y16D32_BW_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("16.546, 16.546")
+                        }
+                        fall_power(S55NLLGSPH_X512Y16D32_BW_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.000, 0.000")
+                        }
+                }
+                internal_power(){
+                        when : "(!CEN & \
+                                   WEN & \
+                                (BWEN[0]) & \
+                                (BWEN[1]) & \
+                                (BWEN[2]) & \
+                                (BWEN[3]) & \
+                                (BWEN[4]) & \
+                                (BWEN[5]) & \
+                                (BWEN[6]) & \
+                                (BWEN[7]) & \
+                                (BWEN[8]) & \
+                                (BWEN[9]) & \
+                                (BWEN[10]) & \
+                                (BWEN[11]) & \
+                                (BWEN[12]) & \
+                                (BWEN[13]) & \
+                                (BWEN[14]) & \
+                                (BWEN[15]) & \
+                                (BWEN[16]) & \
+                                (BWEN[17]) & \
+                                (BWEN[18]) & \
+                                (BWEN[19]) & \
+                                (BWEN[20]) & \
+                                (BWEN[21]) & \
+                                (BWEN[22]) & \
+                                (BWEN[23]) & \
+                                (BWEN[24]) & \
+                                (BWEN[25]) & \
+                                (BWEN[26]) & \
+                                (BWEN[27]) & \
+                                (BWEN[28]) & \
+                                (BWEN[29]) & \
+                                (BWEN[30]) & \
+                                (BWEN[31]) \
+                                ) \
+                                 ";
+                        rise_power(S55NLLGSPH_X512Y16D32_BW_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("15.010, 15.010")
+                        }
+                        fall_power(S55NLLGSPH_X512Y16D32_BW_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.000, 0.000")
+                        }
+                }
+                internal_power(){
+                        when : "(CEN)";
+                        rise_power(S55NLLGSPH_X512Y16D32_BW_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.027, 0.027")
+                        }
+                        fall_power(S55NLLGSPH_X512Y16D32_BW_energy_template_clkslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.000, 0.000")
+                        }
+                }
+        }
+
+        pin(CEN)   {
+                direction : input;
+                capacitance : 0.023;
+                timing() {
+                        related_pin     : CLK;
+                        timing_type     : setup_rising ;
+                        rise_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.242, 0.242, 0.253, 0.267, 0.289, 0.330, 0.356",\
+			"0.377, 0.236, 0.247, 0.261, 0.283, 0.324, 0.346",\
+			"0.372, 0.233, 0.244, 0.258, 0.280, 0.321, 0.345",\
+			"0.368, 0.232, 0.243, 0.259, 0.279, 0.320, 0.345",\
+			"0.367, 0.252, 0.264, 0.277, 0.299, 0.341, 0.367",\
+			"0.387, 0.278, 0.289, 0.303, 0.325, 0.366, 0.391",\
+			"0.410, 0.309, 0.319, 0.333, 0.353, 0.394, 0.420"\
+                        );
+                        }
+                        fall_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.298, 0.298, 0.308, 0.324, 0.357, 0.429, 0.493",\
+			"0.291, 0.291, 0.302, 0.317, 0.350, 0.430, 0.473",\
+			"0.298, 0.298, 0.309, 0.325, 0.352, 0.437, 0.493",\
+			"0.537, 0.325, 0.335, 0.352, 0.382, 0.461, 0.517",\
+			"0.564, 0.395, 0.405, 0.420, 0.450, 0.531, 0.584",\
+			"0.631, 0.448, 0.456, 0.470, 0.501, 0.578, 0.631",\
+			"0.683, 0.495, 0.504, 0.516, 0.546, 0.618, 0.679"\
+                        );
+                        }
+                } 
+                timing() {
+                        related_pin     : CLK;
+                        timing_type     : hold_rising ;
+                        rise_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000"\
+                        );
+                        }
+                        fall_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000",\
+			"0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000"\
+                        );
+                        }
+               }
+        }
+       
+
+
+        bus(BWEN){
+                bus_type : S55NLLGSPH_X512Y16D32_BW_WRITE;
+                direction : input;
+                capacitance : 0.025;
+                timing() {
+                        related_pin     : CLK;
+                        timing_type     : setup_rising ;
+                        rise_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.305, 0.317, 0.304, 0.330, 0.385, 0.417, 0.443",\
+			"0.294, 0.306, 0.294, 0.317, 0.371, 0.405, 0.431",\
+			"0.284, 0.296, 0.294, 0.308, 0.361, 0.397, 0.420",\
+			"0.285, 0.305, 0.294, 0.295, 0.348, 0.380, 0.407",\
+			"0.278, 0.294, 0.294, 0.284, 0.341, 0.373, 0.398",\
+			"0.284, 0.294, 0.294, 0.292, 0.347, 0.377, 0.407",\
+			"0.298, 0.294, 0.305, 0.307, 0.364, 0.394, 0.421"\
+                        );
+                        }
+                        fall_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.287, 0.300, 0.276, 0.276, 0.346, 0.393, 0.433",\
+			"0.276, 0.289, 0.276, 0.268, 0.335, 0.382, 0.422",\
+			"0.268, 0.280, 0.276, 0.268, 0.325, 0.372, 0.412",\
+			"0.263, 0.287, 0.276, 0.268, 0.313, 0.360, 0.399",\
+			"0.255, 0.276, 0.276, 0.268, 0.302, 0.349, 0.388",\
+			"0.261, 0.276, 0.276, 0.268, 0.309, 0.355, 0.395",\
+			"0.274, 0.276, 0.287, 0.268, 0.324, 0.369, 0.408"\
+                        );
+                        }
+                } 
+                timing() {
+                        related_pin     : CLK;
+                        timing_type     : hold_rising ;
+                        rise_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.211, 0.202, 0.191, 0.186, 0.193, 0.200, 0.193",\
+			"0.220, 0.210, 0.199, 0.193, 0.193, 0.200, 0.200",\
+			"0.227, 0.216, 0.205, 0.193, 0.178, 0.200, 0.209",\
+			"0.238, 0.225, 0.211, 0.193, 0.186, 0.200, 0.209",\
+			"0.251, 0.238, 0.223, 0.197, 0.193, 0.200, 0.209",\
+			"0.249, 0.236, 0.221, 0.195, 0.200, 0.178, 0.209",\
+			"0.240, 0.227, 0.212, 0.193, 0.200, 0.186, 0.209"\
+                        );
+                        }
+                        fall_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.247, 0.235, 0.220, 0.207, 0.216, 0.226, 0.216",\
+			"0.257, 0.245, 0.230, 0.216, 0.216, 0.226, 0.226",\
+			"0.265, 0.253, 0.238, 0.216, 0.197, 0.226, 0.234",\
+			"0.274, 0.262, 0.247, 0.219, 0.207, 0.226, 0.234",\
+			"0.282, 0.269, 0.252, 0.220, 0.216, 0.226, 0.234",\
+			"0.280, 0.267, 0.250, 0.217, 0.226, 0.197, 0.234",\
+			"0.271, 0.258, 0.241, 0.216, 0.226, 0.207, 0.234"\
+                        );
+                        }
+               }
+        }
+        pin(WEN){
+                direction : input;
+                capacitance : 0.021;
+                timing() {
+                        related_pin     : CLK;
+                        timing_type     : setup_rising ;
+                        rise_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.302, 0.315, 0.304, 0.330, 0.385, 0.417, 0.443",\
+			"0.293, 0.304, 0.293, 0.317, 0.371, 0.405, 0.431",\
+			"0.290, 0.296, 0.293, 0.308, 0.361, 0.397, 0.420",\
+			"0.286, 0.302, 0.293, 0.295, 0.348, 0.380, 0.407",\
+			"0.276, 0.293, 0.293, 0.290, 0.341, 0.373, 0.398",\
+			"0.282, 0.293, 0.293, 0.292, 0.347, 0.377, 0.407",\
+			"0.296, 0.293, 0.302, 0.307, 0.364, 0.394, 0.421"\
+                        );
+                        }
+                        fall_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.286, 0.300, 0.275, 0.275, 0.350, 0.397, 0.437",\
+			"0.275, 0.289, 0.275, 0.269, 0.339, 0.386, 0.426",\
+			"0.269, 0.278, 0.275, 0.269, 0.329, 0.376, 0.415",\
+			"0.264, 0.286, 0.275, 0.269, 0.317, 0.364, 0.403",\
+			"0.256, 0.275, 0.275, 0.269, 0.303, 0.350, 0.390",\
+			"0.262, 0.275, 0.275, 0.269, 0.309, 0.355, 0.395",\
+			"0.275, 0.275, 0.286, 0.269, 0.324, 0.369, 0.408"\
+                        );
+                        }
+                } 
+                timing() {
+                        related_pin     : CLK;
+                        timing_type     : hold_rising ;
+                        rise_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.042, 0.030, 0.015, 0.006, 0.010, 0.013, 0.010",\
+			"0.050, 0.040, 0.026, 0.010, 0.010, 0.013, 0.013",\
+			"0.051, 0.047, 0.035, 0.011, 0.000, 0.013, 0.023",\
+			"0.054, 0.044, 0.037, 0.021, 0.006, 0.013, 0.023",\
+			"0.059, 0.047, 0.033, 0.010, 0.010, 0.013, 0.023",\
+			"0.050, 0.037, 0.023, 0.010, 0.013, 0.000, 0.023",\
+			"0.032, 0.020, 0.006, 0.010, 0.013, 0.006, 0.023"\
+                        );
+                        }
+                        fall_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+			"0.062, 0.049, 0.032, 0.025, 0.031, 0.036, 0.031",\
+			"0.073, 0.059, 0.043, 0.031, 0.031, 0.036, 0.036",\
+			"0.078, 0.069, 0.052, 0.031, 0.013, 0.036, 0.044",\
+			"0.080, 0.077, 0.061, 0.031, 0.025, 0.036, 0.044",\
+			"0.086, 0.074, 0.057, 0.034, 0.031, 0.036, 0.044",\
+			"0.077, 0.064, 0.047, 0.031, 0.036, 0.013, 0.044",\
+			"0.060, 0.047, 0.030, 0.031, 0.036, 0.025, 0.044"\
+                        );
+                        }
+               }
+        }
+        bus(A)   {
+                bus_type : S55NLLGSPH_X512Y16D32_BW_ADDRESS;
+                direction : input;
+                capacitance : 0.026;
+                timing() {
+                        related_pin     : CLK;
+                        timing_type     : setup_rising ;
+                        rise_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.461, 0.472, 0.451, 0.468, 0.526, 0.561, 0.590",\
+			"0.451, 0.461, 0.451, 0.457, 0.515, 0.550, 0.579",\
+			"0.448, 0.452, 0.451, 0.448, 0.505, 0.540, 0.569",\
+			"0.450, 0.461, 0.451, 0.448, 0.493, 0.528, 0.557",\
+			"0.442, 0.451, 0.451, 0.448, 0.479, 0.515, 0.544",\
+			"0.448, 0.451, 0.451, 0.448, 0.482, 0.517, 0.550",\
+			"0.462, 0.451, 0.461, 0.448, 0.498, 0.537, 0.571"\
+			);
+                        }
+                        fall_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.477, 0.486, 0.489, 0.519, 0.594, 0.641, 0.681",\
+			"0.465, 0.475, 0.478, 0.508, 0.583, 0.630, 0.670",\
+			"0.454, 0.465, 0.468, 0.497, 0.573, 0.620, 0.660",\
+			"0.446, 0.477, 0.465, 0.485, 0.560, 0.608, 0.647",\
+			"0.464, 0.465, 0.465, 0.472, 0.547, 0.595, 0.634",\
+			"0.471, 0.465, 0.465, 0.474, 0.549, 0.597, 0.637",\
+			"0.485, 0.465, 0.477, 0.484, 0.558, 0.606, 0.645"\
+			);
+                        }
+                } 
+                timing() {
+                        related_pin     : CLK;
+                        timing_type     : hold_rising ;
+                        rise_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.120, 0.118, 0.110, 0.087, 0.053, 0.062, 0.053",\
+			"0.126, 0.118, 0.116, 0.097, 0.053, 0.062, 0.062",\
+			"0.132, 0.122, 0.113, 0.106, 0.061, 0.062, 0.071",\
+			"0.141, 0.128, 0.114, 0.103, 0.070, 0.062, 0.071",\
+			"0.147, 0.134, 0.118, 0.093, 0.072, 0.062, 0.071",\
+			"0.137, 0.124, 0.109, 0.084, 0.062, 0.049, 0.071",\
+			"0.120, 0.107, 0.091, 0.067, 0.062, 0.050, 0.071"\
+			);
+                        }
+                        fall_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.109, 0.097, 0.080, 0.058, 0.058, 0.066, 0.058",\
+			"0.113, 0.109, 0.091, 0.060, 0.058, 0.066, 0.066",\
+			"0.113, 0.117, 0.100, 0.069, 0.051, 0.066, 0.074",\
+			"0.119, 0.112, 0.110, 0.079, 0.058, 0.066, 0.074",\
+			"0.125, 0.112, 0.095, 0.082, 0.058, 0.066, 0.074",\
+			"0.115, 0.102, 0.085, 0.058, 0.066, 0.051, 0.074",\
+			"0.098, 0.085, 0.068, 0.058, 0.066, 0.058, 0.074"\
+			);
+                        }
+               }
+                internal_power(){
+                        when : "CEN";
+                        rise_power(S55NLLGSPH_X512Y16D32_BW_energy_template_sigslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.321, 0.321")
+                        }
+                        fall_power(S55NLLGSPH_X512Y16D32_BW_energy_template_sigslew) {
+                        index_1 ("0.000, 1.000");
+                        values ("0.321, 0.321")
+                        }
+                }
+        }
+        bus(D)   {
+                bus_type : S55NLLGSPH_X512Y16D32_BW_DATA;
+                memory_write() {
+                        address : A;
+                        clocked_on : "CLK";
+                }
+                direction : input;
+                capacitance : 0.025;
+                timing() {
+                        related_pin     : CLK;
+                        timing_type     : setup_rising ;
+                        rise_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.305, 0.317, 0.301, 0.328, 0.382, 0.415, 0.439",\
+			"0.294, 0.306, 0.294, 0.316, 0.370, 0.402, 0.430",\
+			"0.284, 0.296, 0.294, 0.306, 0.361, 0.391, 0.418",\
+			"0.286, 0.305, 0.294, 0.293, 0.348, 0.379, 0.407",\
+			"0.437, 0.409, 0.375, 0.306, 0.340, 0.374, 0.398",\
+			"0.609, 0.581, 0.547, 0.478, 0.346, 0.380, 0.407",\
+			"0.781, 0.753, 0.719, 0.650, 0.444, 0.395, 0.420"\
+			);
+                        }
+                        fall_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.287, 0.300, 0.276, 0.276, 0.348, 0.395, 0.434",\
+			"0.276, 0.289, 0.276, 0.268, 0.337, 0.384, 0.423",\
+			"0.268, 0.280, 0.276, 0.268, 0.327, 0.374, 0.413",\
+			"0.263, 0.287, 0.276, 0.268, 0.315, 0.361, 0.401",\
+			"0.437, 0.409, 0.375, 0.306, 0.301, 0.348, 0.388",\
+			"0.609, 0.581, 0.547, 0.478, 0.303, 0.350, 0.390",\
+			"0.781, 0.753, 0.719, 0.650, 0.444, 0.359, 0.398"\
+			);
+                        }
+                } 
+                timing() {
+                        related_pin     : CLK;
+                        timing_type     : hold_rising ;
+                        rise_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.211, 0.201, 0.191, 0.186, 0.192, 0.199, 0.192",\
+			"0.219, 0.209, 0.198, 0.192, 0.192, 0.199, 0.199",\
+			"0.225, 0.215, 0.204, 0.192, 0.177, 0.199, 0.208",\
+			"0.235, 0.223, 0.209, 0.192, 0.186, 0.199, 0.208",\
+			"0.248, 0.235, 0.220, 0.194, 0.192, 0.199, 0.208",\
+			"0.246, 0.233, 0.218, 0.192, 0.199, 0.177, 0.208",\
+			"0.237, 0.224, 0.209, 0.192, 0.199, 0.186, 0.208"\
+			);
+                        }
+                        fall_constraint(S55NLLGSPH_X512Y16D32_BW_constraint_template) {
+                        index_1("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        index_2("0.010, 0.050, 0.100, 0.200, 0.500, 0.750, 1.000");
+                        values(\
+                        "0.245, 0.233, 0.217, 0.207, 0.215, 0.225, 0.215",\
+			"0.255, 0.243, 0.228, 0.215, 0.215, 0.225, 0.225",\
+			"0.263, 0.251, 0.236, 0.215, 0.197, 0.225, 0.234",\
+			"0.272, 0.259, 0.244, 0.217, 0.207, 0.225, 0.234",\
+			"0.280, 0.267, 0.250, 0.218, 0.215, 0.225, 0.234",\
+			"0.278, 0.265, 0.248, 0.215, 0.225, 0.197, 0.234",\
+			"0.269, 0.256, 0.239, 0.215, 0.225, 0.207, 0.234"\
+			);
+                        }
+               }
+        }
+
+        cell_leakage_power : 0.051999;
+}
+}

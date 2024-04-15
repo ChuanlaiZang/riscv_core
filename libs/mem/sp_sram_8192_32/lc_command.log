@@ -1,0 +1,10 @@
+#@ # 
+#@ # Running lc_shell Version O-2018.06-SP1 for linux64 -- Jul 18, 2018
+#@ # Date:   Fri Feb 17 22:15:51 2023
+#@ # Run by: ICer@IC_EDA
+#@ 
+
+read_lib S55NLLGSPH_X512Y16D32_BW_ff_1.32_125.lib
+list_libs
+write_lib -format db S55NLLGSPH_X512Y16D32_BW_ff_1.32_125 -output S55NLLGSPH_X512Y16D32_BW_ff_1.32_125.db
+exit

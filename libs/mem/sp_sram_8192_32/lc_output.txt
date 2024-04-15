@@ -1,0 +1,23 @@
+
+Initializing...
+lc_shell> read_lib S55NLLGSPH_X512Y16D32_BW_ff_1.32_125.lib
+Reading '/home/ICer/ic_prjs/CK_Riscv/libs/mem/sp_sram_8192_32/S55NLLGSPH_X512Y16D32_BW_ff_1.32_125.lib' ...
+Warning: Line 50, The 'internal_power_calculation' attribute in char_config group is required for NLPM library. 
+        No default can be applied to this attribute. (LBDB-366)
+Technology library 'S55NLLGSPH_X512Y16D32_BW_ff_1.32_125' read successfully
+1
+lc_shell> list_libs
+-------------------------------------------------------------------------
+Library                              File                                    Path
+-------                              ----                                    ----
+S55NLLGSPH_X512Y16D32_BW_ff_1.32_125 S55NLLGSPH_X512Y16D32_BW_ff_1.32_125.db /home/ICer/ic_prjs/CK_Riscv/libs/mem/sp_sram_8192_32
+1
+lc_shell> write_lib -format db S55NLLGSPH_X512Y16D32_BW_ff_1.32_125 -output S55NLLGSPH_X512Y16D32_BW_ff_1.32_125.db
+Wrote the 'S55NLLGSPH_X512Y16D32_BW_ff_1.32_125' library to '/home/ICer/ic_prjs/CK_Riscv/libs/mem/sp_sram_8192_32/S55NLLGSPH_X512Y16D32_BW_ff_1.32_125.db' successfully
+1
+lc_shell> exit
+Maximum memory usage for this session: 65.00 MB
+CPU usage for this session:      0 seconds (  0.00 hours)
+Elapsed time for this session:    112 seconds (  0.03 hours)
+Thank you for using Library Compiler.
+
